@@ -42,10 +42,8 @@ class Builder
         // 要素プロパティの設定
         foreach ($elements as $element_key => $element_define)
         {
-            // オブジェクトキー
-            $property_key = ($element_define['property'] ?? $element_key);
             // 要素
-            $element = new Element($element_define, $data[$property_key]);
+            $element = new Element($element_define, $data[$element_key]);
             // バリデーション
             $element->validate();
             // 設定

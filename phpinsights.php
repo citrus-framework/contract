@@ -34,6 +34,10 @@ return [
         NunoMaduro\PhpInsights\Domain\Insights\ForbiddenNormalClasses::class,
         SlevomatCodingStandard\Sniffs\Commenting\UselessInheritDocCommentSniff::class,
         SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff::class,
+        SlevomatCodingStandard\Sniffs\ControlStructures\LanguageConstructWithParenthesesSniff::class,
+        SlevomatCodingStandard\Sniffs\TypeHints\ParameterTypeHintSniff::class,
+        SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff::class,
+        SlevomatCodingStandard\Sniffs\TypeHints\ReturnTypeHintSniff::class,
     ],
     'config' => [
         //  ExampleInsight::class => [
