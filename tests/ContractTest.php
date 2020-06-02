@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @license     http://www.citrus.tk/
  */
 
-namespace Test\Contract;
+namespace Test;
 
 use Citrus\Configure\ConfigureException;
 use Citrus\Contract;
@@ -34,7 +34,6 @@ class ContractTest extends TestCase
         $configures = require(dirname(__DIR__) . '/tests/citrus-configure.php');
 
         // 生成
-        /** @var Contract $contract */
         $contract = Contract::sharedInstance()->loadConfigures($configures);
 
         // 検証

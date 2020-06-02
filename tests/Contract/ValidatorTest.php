@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @license     http://www.citrus.tk/
  */
 
-namespace Test;
+namespace Test\Contract;
 
 use Citrus\Contract\ContractException;
 use Citrus\Contract\Element;
