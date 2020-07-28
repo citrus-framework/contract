@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Citrus\Contract;
 
-use Citrus\Variable\Directory;
+use Citrus\Variable\Directories;
 
 /**
  * コントラクトからオブジェクト生成するクラス
@@ -28,7 +28,7 @@ class Builder
     public static function execute(string $contract_path, array $data): object
     {
         // コントラクトファイルパスから、コントラクト定義配列を取得
-        $contract_path = Directory::suitablePath($contract_path);
+        $contract_path = Directories::suitablePath($contract_path);
         $contracts = include $contract_path;
         // オブジェクト型
         $type = ($contracts['type'] ?? null);

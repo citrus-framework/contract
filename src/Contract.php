@@ -14,8 +14,8 @@ use Citrus\Configure\Configurable;
 use Citrus\Contract\Builder;
 use Citrus\Contract\ContractException;
 use Citrus\Http\HttpException;
-use Citrus\Http\Request;
-use Citrus\Variable\Directory;
+use Citrus\Http\Server\Request;
+use Citrus\Variable\Directories;
 use Citrus\Variable\Singleton;
 
 /**
@@ -40,7 +40,7 @@ class Contract extends Configurable
         // URLのパスを取得
         $request_path = $request->requestPath();
         // パスの先頭を大文字化
-        $request_path = Directory::upperFirstPath($request_path);
+        $request_path = Directories::upperFirstPath($request_path);
 
         // マッチするコントラクトファイルを選別
         $contract_path = $this->configures['path'] . $request_path . '.php';
