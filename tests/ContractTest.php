@@ -12,10 +12,6 @@ namespace Test;
 
 use Citrus\Configure\ConfigureException;
 use Citrus\Contract;
-use Citrus\Contract\ContractException;
-use Citrus\Http\HttpException;
-use Citrus\Variable\ReflectionProperties;
-use Citrus\Variable\Strings;
 use PHPUnit\Framework\TestCase;
 use Test\Sample\Entity\UserEntity;
 

@@ -10,14 +10,14 @@ declare(strict_types=1);
 
 namespace Citrus\Contract;
 
-use Citrus\Variable\Structs;
+use Citrus\Variable\Binders;
 
 /**
  * コントラクト要素を表すクラス
  */
 class Element
 {
-    use Structs;
+    use Binders;
 
     /** @var string プロパティキー */
     public $property;
@@ -50,7 +50,7 @@ class Element
      */
     public function __construct(array $element, $value)
     {
-        $this->bind($element);
+        $this->bindArray($element);
         $this->value = $value;
     }
 
