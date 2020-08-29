@@ -43,14 +43,37 @@ class Builder
         foreach ($elements as $element_key => $element_define)
         {
             // 要素
-            $element = new Element($element_define, $data[$element_key]);
+            $element = new Element($element_define, ($data[$element_key] ?? null));
             // バリデーション
             $element->validate();
             // 設定
             $object_key = $element->property;
-            $object->$object_key = $element->value;
+            $object->$object_key = self::valueByVarType($element);
         }
 
         return $object;
+    }
+
+
+
+    /**
+     * 値をvar_typeの型で修正して返却
+     *
+     * @param Element $element
+     * @return mixed
+     */
+    private static function valueByVarType(Element $element)
+    {
+        // 整数系
+        if ($element->var_type === ElementType::TYPE_INT)
+        {
+            return (int)$element->value;
+        }
+        // 浮動小数点数
+        if (true === in_array($element->var_type, [ElementType::TYPE_FLOAT, ElementType::TYPE_NUMERIC], true))
+        {
+            return (float)$element->value;
+        }
+        return $element->value;
     }
 }
