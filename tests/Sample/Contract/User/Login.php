@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Test\Sample\Contract\User;
 
+use Citrus\Contract\ElementType;
 use Test\Sample\Entity\UserEntity;
 
 return [
@@ -18,12 +19,12 @@ return [
         'user_id' => [
             'property' => 'user_id',
             'name' => 'ユーザーID',
-            'var_type' => 'string',
+            'var_type' => ElementType::TYPE_INT,
         ],
         'password' => [
             'property' => 'password',
             'name' => 'パスワード',
-            'var_type' => 'string',
+            'var_type' => ElementType::TYPE_STRING,
         ],
     ],
 ];

@@ -46,6 +46,7 @@ class ContractTest extends TestCase
         $_POST['user_id'] = 'scott';
         $_POST['password'] = 'tiger';
         $_SERVER['REQUEST_URI'] = '/Contract/User/Login';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
 
         // 設定ファイル
         $configures = require(dirname(__DIR__) . '/tests/citrus-configure.php');

@@ -25,7 +25,7 @@ class BuilderTest extends TestCase
      */
     public function execute_想定通り()
     {
-        $user_id = 'scott';
+        $user_id = 1;
         $password = 'tiger';
 
         $contract_path = __DIR__ . '/../Sample/Contract/User/Login.php';
