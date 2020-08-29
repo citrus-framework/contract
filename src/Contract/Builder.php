@@ -64,6 +64,12 @@ class Builder
      */
     private static function valueByVarType(Element $element)
     {
+        // nullか、文字列で空文字であればそのまま返却
+        if (true === is_null($element->value) or (true === is_string($element->value) and '' === $element->value))
+        {
+            return $element->value;
+        }
+
         // 整数系
         if ($element->var_type === ElementType::TYPE_INT)
         {
