@@ -55,7 +55,8 @@ trait Datetime
     {
         ContractException::exceptionIf(
             (0 === preg_match('/^[0-9]{2}:[0-5][0-9]:?([0-5][0-9])+?/', $element->value)),
-            sprintf('「%s」には時分秒または時分を入力してください。', $element->name));
+            sprintf('「%s」には時分秒または時分を入力してください。', $element->name),
+        );
     }
 
 
@@ -70,6 +71,7 @@ trait Datetime
     {
         ContractException::exceptionIf(
             (false === strtotime($element->value)),
-            sprintf('「%s」には年月日時分秒を入力してください。', $element->name));
+            sprintf('「%s」には年月日時分秒を入力してください。', $element->name),
+        );
     }
 }

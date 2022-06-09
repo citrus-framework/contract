@@ -62,7 +62,7 @@ class Builder
      * @param Element $element
      * @return mixed
      */
-    private static function valueByVarType(Element $element)
+    private static function valueByVarType(Element $element): mixed
     {
         // nullか、文字列で空文字であればそのまま返却
         if (true === is_null($element->value) or (true === is_string($element->value) and '' === $element->value))
@@ -71,7 +71,7 @@ class Builder
         }
 
         // 整数系
-        if ($element->var_type === ElementType::TYPE_INT)
+        if (ElementType::TYPE_INT === $element->var_type)
         {
             return (int)$element->value;
         }

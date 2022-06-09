@@ -28,7 +28,8 @@ trait Other
     {
         ContractException::exceptionIf(
             (0 === preg_match('/^[0-9]{2,3}-[0-9]{1,4}-[0-9]{2,4}$/', $element->value)),
-            sprintf('「%s」には電話番号を入力してください。', $element->name));
+            sprintf('「%s」には電話番号を入力してください。', $element->name),
+        );
     }
 
 
@@ -43,6 +44,7 @@ trait Other
     {
         ContractException::exceptionIf(
             (0 === preg_match('/^([*+!.&#$|\'\\%\/0-9a-z^_`{}=?> :-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,})$/i', $element->value)),
-            sprintf('「%s」にはメールアドレスを入力してください。', $element->name));
+            sprintf('「%s」にはメールアドレスを入力してください。', $element->name),
+        );
     }
 }

@@ -19,26 +19,26 @@ class Element
 {
     use Binders;
 
-    /** @var string プロパティキー */
-    public $property;
+    /** @var string|null プロパティキー */
+    public string|null $property = null;
 
-    /** @var string 名称 */
-    public $name;
+    /** @var string|null 名称 */
+    public string|null $name = null;
 
-    /** @var mixed 値 */
-    public $value;
+    /** @var mixed|null 値 */
+    public mixed $value = null;
 
-    /** @var string 型 */
-    public $var_type;
+    /** @var string|null 型 */
+    public string|null $var_type = null;
 
-    /** @var int 最小値 */
-    public $min;
+    /** @var int|null 最小値 */
+    public int|null $min = null;
 
-    /** @var int 最大値 */
-    public $max;
+    /** @var int|null 最大値 */
+    public int|null $max = null;
 
-    /** @var bool true:必須 */
-    public $required = false;
+    /** @var bool|null true:必須 */
+    public bool|null $required = false;
 
 
 
@@ -48,7 +48,7 @@ class Element
      * @param array $element 要素定義
      * @param mixed $value   値
      */
-    public function __construct(array $element, $value)
+    public function __construct(array $element, mixed $value)
     {
         $this->bindArray($element);
         $this->value = $value;

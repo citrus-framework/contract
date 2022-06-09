@@ -19,7 +19,7 @@ return [
         'user_id' => [
             'property' => 'user_id',
             'name' => 'ユーザーID',
-            'var_type' => ElementType::TYPE_INT,
+            'var_type' => ElementType::TYPE_STRING,
         ],
         'password' => [
             'property' => 'password',
