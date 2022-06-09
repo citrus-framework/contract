@@ -32,13 +32,16 @@ trait VarType
                 false === is_numeric($element->value) and
                 0 === preg_match('/^-?[0-9]*$/', $element->value)
             ),
-            sprintf('「%s」には整数を入力してください。', $element->name));
+            sprintf('「%s」には整数を入力してください。', $element->name),
+        );
         ContractException::exceptionIf(
             (PHP_INT_MAX <= $element->value),
-            sprintf('「%s」には「%d」以下の値を入力してください。', $element->name, PHP_INT_MAX));
+            sprintf('「%s」には「%d」以下の値を入力してください。', $element->name, PHP_INT_MAX),
+        );
         ContractException::exceptionIf(
             (PHP_INT_MIN >= $element->value),
-            sprintf('「%s」には「%d」以上の値を入力してください。', $element->name, PHP_INT_MIN));
+            sprintf('「%s」には「%d」以上の値を入力してください。', $element->name, PHP_INT_MIN),
+        );
     }
 
 
@@ -53,7 +56,8 @@ trait VarType
     {
         ContractException::exceptionIf(
             (false === is_float($element->value)),
-            sprintf('「%s」には少数を入力してください。', $element->name));
+            sprintf('「%s」には少数を入力してください。', $element->name),
+        );
     }
 
 
@@ -68,7 +72,8 @@ trait VarType
     {
         ContractException::exceptionIf(
             (false === is_numeric($element->value)),
-            sprintf('「%s」には数字を入力してください。', $element->name));
+            sprintf('「%s」には数字を入力してください。', $element->name),
+        );
     }
 
 
@@ -83,7 +88,8 @@ trait VarType
     {
         ContractException::exceptionIf(
             (false === is_string($element->value)),
-            sprintf('「%s」には文字列を入力してください。', $element->name));
+            sprintf('「%s」には文字列を入力してください。', $element->name),
+        );
     }
 
 
@@ -98,7 +104,8 @@ trait VarType
     {
         ContractException::exceptionIf(
             (0 === preg_match('/^[a-zA-Z]/', $element->value)),
-            sprintf('「%s」には半角英字を入力してください。', $element->name));
+            sprintf('「%s」には半角英字を入力してください。', $element->name),
+        );
     }
 
 
@@ -113,7 +120,8 @@ trait VarType
     {
         ContractException::exceptionIf(
             (0 === preg_match('/^[a-zA-Z0-9_.]/', $element->value)),
-            sprintf('「%s」には半角英数字を入力してください。', $element->name));
+            sprintf('「%s」には半角英数字を入力してください。', $element->name),
+        );
     }
 
 
@@ -128,6 +136,7 @@ trait VarType
     {
         ContractException::exceptionIf(
             (0 === preg_match('/^[a-zA-Z0-9_.%&#-]/', $element->value)),
-            sprintf('「%s」には半角英数字および記号を入力してください。', $element->name));
+            sprintf('「%s」には半角英数字および記号を入力してください。', $element->name),
+        );
     }
 }

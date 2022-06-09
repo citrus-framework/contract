@@ -64,9 +64,12 @@ trait Size
         {
             self::numericMax($element);
         }
-        else if (ElementType::TYPE_STRING === $element->var_type)
+        else
         {
-            self::lengthMax($element);
+            if (ElementType::TYPE_STRING === $element->var_type)
+            {
+                self::lengthMax($element);
+            }
         }
     }
 
@@ -92,9 +95,12 @@ trait Size
         {
             self::numericMin($element);
         }
-        else if (ElementType::TYPE_STRING === $element->var_type)
+        else
         {
-            self::lengthMin($element);
+            if (ElementType::TYPE_STRING === $element->var_type)
+            {
+                self::lengthMin($element);
+            }
         }
     }
 
@@ -110,7 +116,8 @@ trait Size
     {
         ContractException::exceptionIf(
             ($element->value > $element->max),
-            sprintf('「%s」には「%s」以下の値を入力してください。', $element->name, $element->max));
+            sprintf('「%s」には「%s」以下の値を入力してください。', $element->name, $element->max),
+        );
     }
 
 
@@ -125,7 +132,8 @@ trait Size
     {
         ContractException::exceptionIf(
             ($element->value < $element->min),
-            sprintf('「%s」には「%s」以上の値を入力してください。', $element->name, $element->min));
+            sprintf('「%s」には「%s」以上の値を入力してください。', $element->name, $element->min),
+        );
     }
 
 
@@ -141,7 +149,8 @@ trait Size
         $length = mb_strwidth($element->value, 'UTF-8');
         ContractException::exceptionIf(
             ($length > $element->max),
-            sprintf('「%s」には「%s」文字以下で入力してください。', $element->name, $element->max));
+            sprintf('「%s」には「%s」文字以下で入力してください。', $element->name, $element->max),
+        );
     }
 
 
@@ -157,6 +166,7 @@ trait Size
         $length = mb_strwidth($element->value, 'UTF-8');
         ContractException::exceptionIf(
             ($length < $element->min),
-            sprintf('「%s」には「%s」文字以上で入力してください。', $element->name, $element->min));
+            sprintf('「%s」には「%s」文字以上で入力してください。', $element->name, $element->min),
+        );
     }
 }

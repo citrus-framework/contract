@@ -16,61 +16,61 @@ namespace Citrus\Contract;
 class ElementType
 {
     /** @var string int */
-    const TYPE_INT = 'int';
+    public const TYPE_INT = 'int';
 
     /** @var string float */
-    const TYPE_FLOAT = 'float';
+    public const TYPE_FLOAT = 'float';
 
     /** @var string numeric */
-    const TYPE_NUMERIC = 'numeric';
+    public const TYPE_NUMERIC = 'numeric';
 
     /** @var string string */
-    const TYPE_STRING = 'string';
+    public const TYPE_STRING = 'string';
 
     /** @var string alphabet */
-    const TYPE_ALPHABET = 'alphabet';
+    public const TYPE_ALPHABET = 'alphabet';
 
     /** @var string alphabet & numeric */
-    const TYPE_ALPHANUMERIC = 'alphanumeric';
+    public const TYPE_ALPHANUMERIC = 'alphanumeric';
 
     /** @var string alphabet & numeric & marks */
-    const TYPE_AN_MARKS = 'an_marks';
+    public const TYPE_AN_MARKS = 'an_marks';
 
     /** @var string date */
-    const TYPE_DATE = 'date';
+    public const TYPE_DATE = 'date';
 
     /** @var string time */
-    const TYPE_TIME = 'time';
+    public const TYPE_TIME = 'time';
 
     /** @var string datetime */
-    const TYPE_DATETIME = 'datetime';
+    public const TYPE_DATETIME = 'datetime';
 
     /** @var string bool */
-    const TYPE_BOOL = 'bool';
+    public const TYPE_BOOL = 'bool';
 
     /** @var string file */
-    const TYPE_FILE = 'file';
+    public const TYPE_FILE = 'file';
 
     /** @var string telephone */
-    const TYPE_TELEPHONE = 'telephone';
+    public const TYPE_TELEPHONE = 'telephone';
 
     /** @var string tel */
-    const TYPE_TEL = 'tel';
+    public const TYPE_TEL = 'tel';
 
     /** @var string year */
-    const TYPE_YEAR = 'year';
+    public const TYPE_YEAR = 'year';
 
     /** @var string month */
-    const TYPE_MONTH = 'month';
+    public const TYPE_MONTH = 'month';
 
     /** @var string day */
-    const TYPE_DAY = 'day';
+    public const TYPE_DAY = 'day';
 
     /** @var string email */
-    const TYPE_EMAIL = 'email';
+    public const TYPE_EMAIL = 'email';
 
     /** @var string[] 数値系要素 */
-    public static $NUMERICALS = [
+    public static array $NUMERICALS = [
         self::TYPE_INT,
         self::TYPE_FLOAT,
         self::TYPE_NUMERIC,
