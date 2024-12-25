@@ -15,7 +15,7 @@ use Citrus\Variable\Binders;
 /**
  * コントラクト要素を表すクラス
  */
-class Element
+class Element extends \stdClass
 {
     use Binders;
 
@@ -40,11 +40,8 @@ class Element
     /** @var bool|null true:必須 */
     public bool|null $required = false;
 
-
-
     /**
      * constructor.
-     *
      * @param array $element 要素定義
      * @param mixed $value   値
      */
@@ -54,11 +51,8 @@ class Element
         $this->value = $value;
     }
 
-
-
     /**
      * バリデート
-     *
      * @throws ContractException
      */
     public function validate(): void

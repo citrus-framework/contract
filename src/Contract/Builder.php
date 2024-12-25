@@ -19,7 +19,6 @@ class Builder
 {
     /**
      * オブジェクトの生成
-     *
      * @param string $contract_path コントラクトファイルパス
      * @param array  $data          POSTなどで渡されてきたデータ
      * @return object コントラクトファイルで型指定されたオブジェクト
@@ -54,11 +53,8 @@ class Builder
         return $object;
     }
 
-
-
     /**
      * 値をvar_typeの型で修正して返却
-     *
      * @param Element $element
      * @return mixed
      */
@@ -73,12 +69,12 @@ class Builder
         // 整数系
         if (ElementType::TYPE_INT === $element->var_type)
         {
-            return (int)$element->value;
+            return (int) $element->value;
         }
         // 浮動小数点数
         if (true === in_array($element->var_type, [ElementType::TYPE_FLOAT, ElementType::TYPE_NUMERIC], true))
         {
-            return (float)$element->value;
+            return (float) $element->value;
         }
         return $element->value;
     }

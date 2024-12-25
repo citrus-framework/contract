@@ -15,6 +15,6 @@ namespace Test\Sample\Entity;
  */
 class UserEntity
 {
-    public $user_id;
-    public $password;
+    public string $user_id;
+    public string $password;
 }

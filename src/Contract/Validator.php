@@ -30,93 +30,80 @@ class Validator
     // 検証(その他)
     use Other;
 
-
-
     /**
      * 型チェック
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
     public static function varType(Element $element): void
     {
         // 入力がある場合のみチェックする。
-        if (false === is_numeric($element->value) and true === Strings::isEmpty($element->value))
+        if (false === is_numeric($element->value)
+            and false === is_bool($element->value)
+            and true === Strings::isEmpty($element->value))
         {
             return;
         }
 
         switch ($element->var_type)
         {
-            // int
             case ElementType::TYPE_INT:
+                // int
                 self::varTypeInt($element);
                 break;
-
-            // float
             case ElementType::TYPE_FLOAT:
+                // float
                 self::varTypeFloat($element);
                 break;
-
-            // numeric
             case ElementType::TYPE_NUMERIC:
+                // numeric
                 self::varTypeNumeric($element);
                 break;
-
-            // string
             case ElementType::TYPE_STRING:
+                // string
                 self::varTypeString($element);
                 break;
-
-            // alphabet
             case ElementType::TYPE_ALPHABET:
+                // alphabet
                 self::varTypeString($element);
                 self::varTypeAlphabet($element);
                 break;
-
-            // alphabet & numeric
             case ElementType::TYPE_ALPHANUMERIC:
+                // alphabet & numeric
                 self::varTypeString($element);
                 self::varTypeAlphanumeric($element);
                 break;
-
-            // alphabet & numeric & marks
             case ElementType::TYPE_AN_MARKS:
+                // alphabet & numeric & marks
                 self::varTypeString($element);
                 self::varTypeANMarks($element);
                 break;
-
-            // date
             case ElementType::TYPE_DATE:
+                // date
                 self::varTypeDate($element);
                 break;
-
-            // time
             case ElementType::TYPE_TIME:
+                // time
                 self::varTypeString($element);
                 self::varTypeTime($element);
                 break;
-
-            // datetime
             case ElementType::TYPE_DATETIME:
+                // datetime
                 self::varTypeString($element);
                 self::varTypeDatetime($element);
                 break;
-
-            // tel
             case ElementType::TYPE_TEL:
+                // tel
                 self::varTypeString($element);
                 self::varTypeTel($element);
                 break;
-
-            // email
             case ElementType::TYPE_EMAIL:
+                // email
                 self::varTypeString($element);
                 self::varTypeEmail($element);
                 break;
-
-            // other
             default:
+                // other
                 break;
         }
     }

@@ -22,7 +22,6 @@ trait Size
 {
     /**
      * 必須チェック
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -42,11 +41,8 @@ trait Size
         ContractException::exceptionIf(empty($element->value), sprintf('「%s」は入力必須です。', $element->name));
     }
 
-
-
     /**
      * 最大値チェック
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -73,11 +69,8 @@ trait Size
         }
     }
 
-
-
     /**
      * 最小値チェック
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -104,11 +97,8 @@ trait Size
         }
     }
 
-
-
     /**
      * 最大値チェック(数値)
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -120,11 +110,8 @@ trait Size
         );
     }
 
-
-
     /**
      * 最小値チェック(数値)
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -136,11 +123,8 @@ trait Size
         );
     }
 
-
-
     /**
      * 最大値チェック(文字列長)
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -153,11 +137,8 @@ trait Size
         );
     }
 
-
-
     /**
      * 最小値チェック(文字列長)
-     *
      * @param Element $element 要素
      * @throws ContractException
      */

@@ -20,7 +20,6 @@ trait Datetime
 {
     /**
      * 日付チェック
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -29,9 +28,9 @@ trait Datetime
         $timestamp = strtotime($element->value);
         if (false !== $timestamp)
         {
-            $year = (int)date('Y', $timestamp);
-            $month = (int)date('n', $timestamp);
-            $day = (int)date('j', $timestamp);
+            $year = (int) date('Y', $timestamp);
+            $month = (int) date('n', $timestamp);
+            $day = (int) date('j', $timestamp);
             if (true === checkdate($month, $day, $year))
             {
                 return;
@@ -43,11 +42,8 @@ trait Datetime
         );
     }
 
-
-
     /**
      * 時間チェック
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -59,11 +55,8 @@ trait Datetime
         );
     }
 
-
-
     /**
      * 日時チェック
-     *
      * @param Element $element 要素
      * @throws ContractException
      */

@@ -33,8 +33,6 @@ class ValidatorTest extends TestCase
         Validator::required($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
@@ -49,8 +47,6 @@ class ValidatorTest extends TestCase
         Validator::required($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
@@ -62,8 +58,6 @@ class ValidatorTest extends TestCase
         ], 11);
         Validator::varTypeInt($element);
     }
-
-
 
     /**
      * @test
@@ -79,13 +73,11 @@ class ValidatorTest extends TestCase
         Validator::varTypeInt($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
      */
-    public function varTypeFlaot_浮動小数点チェック_正常()
+    public function varTypeFloat_浮動小数点チェック_正常()
     {
         $element = new Element([
             'id' => 'user_id',
@@ -93,13 +85,11 @@ class ValidatorTest extends TestCase
         Validator::varTypeFloat($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
      */
-    public function varTypeFlaot_浮動小数点チェック_例外()
+    public function varTypeFloat_浮動小数点チェック_例外()
     {
         $this->expectException(ContractException::class);
 
@@ -108,8 +98,6 @@ class ValidatorTest extends TestCase
         ], null);
         Validator::varTypeFloat($element);
     }
-
-
 
     /**
      * @test
@@ -122,8 +110,6 @@ class ValidatorTest extends TestCase
         ], 11.5);
         Validator::varTypeNumeric($element);
     }
-
-
 
     /**
      * @test
@@ -139,8 +125,6 @@ class ValidatorTest extends TestCase
         Validator::varTypeNumeric($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
@@ -152,8 +136,6 @@ class ValidatorTest extends TestCase
         ], 'abc');
         Validator::varTypeAlphabet($element);
     }
-
-
 
     /**
      * @test
@@ -169,8 +151,6 @@ class ValidatorTest extends TestCase
         Validator::varTypeAlphabet($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
@@ -182,8 +162,6 @@ class ValidatorTest extends TestCase
         ], 'abc11');
         Validator::varTypeAlphanumeric($element);
     }
-
-
 
     /**
      * @test
@@ -199,8 +177,6 @@ class ValidatorTest extends TestCase
         Validator::varTypeAlphanumeric($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
@@ -212,8 +188,6 @@ class ValidatorTest extends TestCase
         ], 'abc11$#');
         Validator::varTypeANMarks($element);
     }
-
-
 
     /**
      * @test
@@ -229,8 +203,6 @@ class ValidatorTest extends TestCase
         Validator::varTypeANMarks($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
@@ -242,8 +214,6 @@ class ValidatorTest extends TestCase
         ], '2019-11-11');
         Validator::varTypeDate($element);
     }
-
-
 
     /**
      * @test
@@ -259,8 +229,6 @@ class ValidatorTest extends TestCase
         Validator::varTypeDate($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
@@ -272,8 +240,6 @@ class ValidatorTest extends TestCase
         ], '01:02:03');
         Validator::varTypeTime($element);
     }
-
-
 
     /**
      * @test
@@ -289,8 +255,6 @@ class ValidatorTest extends TestCase
         Validator::varTypeTime($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
@@ -303,8 +267,6 @@ class ValidatorTest extends TestCase
         ], '2019-11-11 01:02:03');
         Validator::varTypeDatetime($element);
     }
-
-
 
     /**
      * @test
@@ -320,8 +282,6 @@ class ValidatorTest extends TestCase
         Validator::varTypeDatetime($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
@@ -333,8 +293,6 @@ class ValidatorTest extends TestCase
         ], '01-2345-6789');
         Validator::varTypeTel($element);
     }
-
-
 
     /**
      * @test
@@ -350,8 +308,6 @@ class ValidatorTest extends TestCase
         Validator::varTypeTel($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
@@ -363,8 +319,6 @@ class ValidatorTest extends TestCase
         ], 'hoge@example.com');
         Validator::varTypeEmail($element);
     }
-
-
 
     /**
      * @test
@@ -380,7 +334,31 @@ class ValidatorTest extends TestCase
         Validator::varTypeEmail($element);
     }
 
+    /**
+     * @test
+     * @throws ContractException
+     */
+    public function varTypeBool_論理値チェック_正常()
+    {
+        $element = new Element([
+            'id' => 'user_id',
+        ], true);
+        Validator::varTypeBool($element);
+    }
 
+    /**
+     * @test
+     * @throws ContractException
+     */
+    public function varTypeBool_論理値チェック_例外()
+    {
+        $this->expectException(ContractException::class);
+
+        $element = new Element([
+            'id' => 'user_id',
+        ], 'true');
+        Validator::varTypeBool($element);
+    }
 
     /**
      * @test
@@ -394,8 +372,6 @@ class ValidatorTest extends TestCase
         ], 10);
         Validator::numericMax($element);
     }
-
-
 
     /**
      * @test
@@ -412,8 +388,6 @@ class ValidatorTest extends TestCase
         Validator::numericMax($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
@@ -426,8 +400,6 @@ class ValidatorTest extends TestCase
         ], 1);
         Validator::numericMin($element);
     }
-
-
 
     /**
      * @test
@@ -444,8 +416,6 @@ class ValidatorTest extends TestCase
         Validator::numericMin($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
@@ -458,8 +428,6 @@ class ValidatorTest extends TestCase
         ], '0123456789');
         Validator::lengthMax($element);
     }
-
-
 
     /**
      * @test
@@ -476,8 +444,6 @@ class ValidatorTest extends TestCase
         Validator::lengthMax($element);
     }
 
-
-
     /**
      * @test
      * @throws ContractException
@@ -490,8 +456,6 @@ class ValidatorTest extends TestCase
         ], '01');
         Validator::lengthMin($element);
     }
-
-
 
     /**
      * @test
