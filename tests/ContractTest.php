@@ -36,8 +36,6 @@ class ContractTest extends TestCase
         $this->assertSame($configures['default']['contract']['path'], $contract->configures['path']);
     }
 
-
-
     /**
      * @test
      */

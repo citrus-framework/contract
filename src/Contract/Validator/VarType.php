@@ -20,7 +20,6 @@ trait VarType
 {
     /**
      * 型チェック(int)
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -44,11 +43,8 @@ trait VarType
         );
     }
 
-
-
     /**
      * 型チェック(float)
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -60,11 +56,8 @@ trait VarType
         );
     }
 
-
-
     /**
      * 型チェック(数値として認識できる)
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -76,11 +69,8 @@ trait VarType
         );
     }
 
-
-
     /**
      * 文字列チェック
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -92,11 +82,8 @@ trait VarType
         );
     }
 
-
-
     /**
      * アルファベットチェック
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -108,11 +95,8 @@ trait VarType
         );
     }
 
-
-
     /**
      * 英数字チェック
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -124,11 +108,8 @@ trait VarType
         );
     }
 
-
-
     /**
      * 英数字と記号チェック
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -137,6 +118,19 @@ trait VarType
         ContractException::exceptionIf(
             (0 === preg_match('/^[a-zA-Z0-9_.%&#-]/', $element->value)),
             sprintf('「%s」には半角英数字および記号を入力してください。', $element->name),
+        );
+    }
+
+    /**
+     * 型チェック(bool)
+     * @param Element $element 要素
+     * @throws ContractException
+     */
+    public static function varTypeBool(Element $element): void
+    {
+        ContractException::exceptionIf(
+            (false === is_bool($element->value)),
+            sprintf('「%s」には論理値を入力してください。', $element->name),
         );
     }
 }

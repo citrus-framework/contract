@@ -40,8 +40,6 @@ class BuilderTest extends TestCase
         $this->assertInstanceOf(UserEntity::class, $user);
     }
 
-
-
     /**
      * @test
      */
@@ -60,8 +58,6 @@ class BuilderTest extends TestCase
             'password' => $password,
         ]);
     }
-
-
 
     /**
      * @test

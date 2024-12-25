@@ -19,7 +19,6 @@ class ContractException extends CitrusException
 {
     /**
      * {@inheritDoc}
-     *
      * @throws ContractException
      */
     public static function exceptionIf($expr, string $message): void
@@ -27,11 +26,8 @@ class ContractException extends CitrusException
         parent::exceptionIf($expr, $message);
     }
 
-
-
     /**
      * {@inheritDoc}
-     *
      * @throws ContractException
      */
     public static function exceptionElse($expr, string $message): void

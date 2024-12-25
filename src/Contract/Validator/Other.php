@@ -20,7 +20,6 @@ trait Other
 {
     /**
      * 電話番号チェック
-     *
      * @param Element $element 要素
      * @throws ContractException
      */
@@ -32,11 +31,8 @@ trait Other
         );
     }
 
-
-
     /**
      * メールアドレスチェック
-     *
      * @param Element $element 要素
      * @throws ContractException
      */

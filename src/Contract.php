@@ -27,7 +27,6 @@ class Contract extends Configurable
 
     /**
      * アクセスURLからデータを自動でパースしてオブジェクトを生成する
-     *
      * @return object コントラクトファイルで型指定されたオブジェクト
      * @throws HttpException
      * @throws ContractException
@@ -47,12 +46,32 @@ class Contract extends Configurable
         ContractException::exceptionElse(file_exists($contract_path), 'コントラクトファイルが存在しません');
 
         // データ取得
-        $request_data = (true === $request->isJson() ? $request->jsons() : $request->posts());
+        $request_data = $this->callRequestData($request);
 
         // オブジェクト生成とバリデーション、そして返却
         return Builder::execute($contract_path, $request_data);
     }
 
+    /**
+     * リクエスト種別から、送られたデータを返す
+     * @param Request $request
+     * @return array
+     */
+    private function callRequestData(Request $request): array
+    {
+        if ($request->isJson())
+        {
+            return $request->jsons();
+        }
+        if ($request->isPost())
+        {
+            return $request->posts();
+        }
+        if ($request->isGet())
+        {
+            return $request->gets();
+        }
+    }
 
 
     /**
@@ -63,8 +82,6 @@ class Contract extends Configurable
         return 'contract';
     }
 
-
-
     /**
      * {@inheritDoc}
      */
@@ -72,8 +89,6 @@ class Contract extends Configurable
     {
         return [];
     }
-
-
 
     /**
      * {@inheritDoc}
