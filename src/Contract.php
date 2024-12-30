@@ -53,28 +53,6 @@ class Contract extends Configurable
     }
 
     /**
-     * リクエスト種別から、送られたデータを返す
-     * @param Request $request
-     * @return array
-     */
-    private function callRequestData(Request $request): array
-    {
-        if ($request->isJson())
-        {
-            return $request->jsons();
-        }
-        if ($request->isPost())
-        {
-            return $request->posts();
-        }
-        if ($request->isGet())
-        {
-            return $request->gets();
-        }
-    }
-
-
-    /**
      * {@inheritDoc}
      */
     protected function configureKey(): string
@@ -98,5 +76,27 @@ class Contract extends Configurable
         return [
             'path',
         ];
+    }
+
+    /**
+     * リクエスト種別から、送られたデータを返す
+     * @param Request $request
+     * @return array
+     */
+    private function callRequestData(Request $request): array
+    {
+        if ($request->isJson())
+        {
+            return $request->jsons();
+        }
+        if ($request->isPost())
+        {
+            return $request->posts();
+        }
+        if ($request->isGet())
+        {
+            return $request->gets();
+        }
+        return [];
     }
 }
